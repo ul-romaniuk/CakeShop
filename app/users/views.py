@@ -1,3 +1,18 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
 
-# Create your views here.
+from users.models import Feedback
+
+
+class HomeView(ListView):
+    model = Feedback
+    template_name = 'home.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        feedbacks = self.model.objects.all()
+        context_data = {
+            'title': 'Cake Shop',
+            'feedbacks': feedbacks,
+        }
+
+        return context_data

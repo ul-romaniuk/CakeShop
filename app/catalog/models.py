@@ -38,3 +38,4 @@ class OrderItem(models.Model):
     product = models.ForeignKey(to=Product,  related_name='order_items', on_delete=models.CASCADE)
     quantity = models.FloatField()
     order = models.ForeignKey(to=Order, on_delete=models.CASCADE, related_name='items')
+

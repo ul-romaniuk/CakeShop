@@ -10,3 +10,10 @@ class CustomUser(AbstractUser):
     def str(self):
         return self.email or self.username
 
+
+class Feedback(models.Model):
+    user = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE,
+                             related_name='feedbacks')
+    full_name = models.CharField(max_length=128, null=True, blank=True)
+    comment = models.TextField(null=False, blank=False)
+
