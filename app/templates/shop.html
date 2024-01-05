@@ -1,149 +1,14 @@
-<!DOCTYPE html>
-<html lang="zxx">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Cake Template">
-    <meta name="keywords" content="Cake, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cake | Template</title>
+{% extends "base.html" %}
+{% load static %}
+{% load catalog_tags %}
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-</head>
-<body>
-
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-
-<div class="offcanvas-menu-overlay"></div>
-<div class="offcanvas-menu-wrapper">
-    <div class="offcanvas__cart">
-        <div class="offcanvas__cart__links">
-            <a href="shop.html#" class="search-switch"><img src="img/icon/search.png" alt></a>
-            <a href="shop.html#"><img src="img/icon/heart.png" alt></a>
-        </div>
-        <div class="offcanvas__cart__item">
-            <a href="shop.html#"><img src="img/icon/cart.png" alt> <span>0</span></a>
-            <div class="cart__price">Cart: <span>$0.00</span></div>
-        </div>
-    </div>
-    <div class="offcanvas__logo">
-        <a href="index.html"><img src="img/logo.png" alt></a>
-    </div>
-    <div id="mobile-menu-wrap"></div>
-    <div class="offcanvas__option">
-        <ul>
-            <li>USD <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </li>
-            <li>ENG <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li>Spanish</li>
-                    <li>ENG</li>
-                </ul>
-            </li>
-            <li><a href="shop.html#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-        </ul>
-    </div>
-</div>
-
-
-<header class="header">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="header__top__inner">
-                        <div class="header__top__left">
-                            <ul>
-                                <li>USD <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>EUR</li>
-                                        <li>USD</li>
-                                    </ul>
-                                </li>
-                                <li>ENG <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>Spanish</li>
-                                        <li>ENG</li>
-                                    </ul>
-                                </li>
-                                <li><a href="shop.html#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-                            </ul>
-                        </div>
-                        <div class="header__logo">
-                            <a href="index.html"><img src="img/logo.png" alt></a>
-                        </div>
-                        <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="shop.html#" class="search-switch"><img src="img/icon/search.png" alt></a>
-                                <a href="shop.html#"><img src="img/icon/heart.png" alt></a>
-                            </div>
-                            <div class="header__top__right__cart">
-                                <a href="shop.html#"><img src="img/icon/cart.png" alt> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="header__menu mobile-menu">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li class="active"><a href="shop.html">Shop</a></li>
-                        <li><a href="shop.html#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="checkout.html">Check Out</a></li>
-                                <li><a href="wisslist.html">Wisslist</a></li>
-                                <li><a href="https://preview.colorlib.com/theme/cake/Class.html">Class</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
+{% block main %}
 
 
 <div class="breadcrumb-option">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="breadcrumb__text">
-                    <h2>Shop</h2>
-                </div>
-            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6"></div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="breadcrumb__links">
                     <a href="index.html">Home</a>
@@ -160,242 +25,79 @@
         <div class="shop__option">
             <div class="row">
                 <div class="col-lg-7 col-md-7">
-                    <div class="shop__option__search">
-                        <form action="shop.html#">
-                            <select>
-                                <option value>Categories</option>
-                                <option value>Red Velvet</option>
-                                <option value>Cup Cake</option>
-                                <option value>Biscuit</option>
-                            </select>
-                            <input type="text" placeholder="Search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
+                    <div>
+                          <select id="approach1" class="form-control">
+                            <option disabled>what are you interested in?</option>
+                            <option value="photos">photos</option>
+                            <option value="books">books</option>
+                            <option value="recipes">recipes</option>
+                          </select>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-5">
-                    <div class="shop__option__right">
-                        <select>
-                          <a href="{% url 'catalog' %}?ordering=price_up">
-                            <option value>Default sorting</option>
-                          </a>
-                            <option value>A to Z</option>
-                            <option value>1 - 8</option>
-                            <option value>Name</option>
-                        </select>
-                        <a href="shop.html#"><i class="fa fa-list"></i></a>
-                        <a href="shop.html#"><i class="fa fa-reorder"></i></a>
-                    </div>
-                </div>
+<!--                <div class="col-lg-5 col-md-5">-->
+<!--                    <div class="shop__option__right">-->
+<!--                        <nav class="header__menu mobile-menu">-->
+
+<!--                        <ul>-->
+
+<!--                            <li><a href="index.html#">Pages</a>-->
+<!--                                <ul class="dropdown">-->
+<!--                                    <li><a href="shop-details.html">Shop Details</a></li>-->
+<!--                                    <li><a href="shoping-cart.html">Shoping Cart</a></li>-->
+
+<!--                                </ul>-->
+<!--                            </li>-->
+
+<!--                        </ul>-->
+<!--                        </nav>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
         <div class="row">
+            {% for product in products %}
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
+                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/shop/details/product-big-1.jpg' %}">
+                            <div class="product__label">
+                                <span>Cake</span>
+                            </div>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="shop.html#">Dozen Cupcakes</a></h6>
-                        <div class="product__item__price">$32.00</div>
+                        <h6><a href="shop.html#">{{ product.name }}</a></h6>
+                        <div class="product__item__price">{{ product.price }} ua / {{ product.unit }}</div>
                         <div class="cart_add">
                             <a href="shop.html#">Add to cart</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-2.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">Cookies and Cream</a></h6>
-                        <div class="product__item__price">$30.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-3.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">Gluten Free Mini Dozen</a></h6>
-                        <div class="product__item__price">$31.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-4.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">Cookie Dough</a></h6>
-                        <div class="product__item__price">$25.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-5.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">Vanilla Salted Caramel</a></h6>
-                        <div class="product__item__price">$05.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-6.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">German Chocolate</a></h6>
-                        <div class="product__item__price">$14.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-7.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">Dulce De Leche</a></h6>
-                        <div class="product__item__price">$32.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-8.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">Mississippi Mud</a></h6>
-                        <div class="product__item__price">$08.00</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-9.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">VEGAN/GLUTEN FREE</a></h6>
-                        <div class="product__item__price">$98.85</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-10.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">SWEET CELTICS</a></h6>
-                        <div class="product__item__price">$5.77</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-11.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">SWEET AUTUMN LEAVES</a></h6>
-                        <div class="product__item__price">$26.41</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/shop/product-12.jpg">
-                        <div class="product__label">
-                            <span>Cupcake</span>
-                        </div>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop.html#">PALE YELLOW SWEET</a></h6>
-                        <div class="product__item__price">$22.47</div>
-                        <div class="cart_add">
-                            <a href="shop.html#">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="shop__last__option">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="shop__pagination">
-                        <a href="shop.html#">1</a>
-                        <a href="shop.html#">2</a>
-                        <a href="shop.html#">3</a>
-                        <a href="shop.html#"><span class="arrow_carrot-right"></span></a>
+
+                        {% if page_obj.has_previous %}
+                              <a class="page-link" style="text-align:center" href="?{% query_transform page=1 %}"><span class="arrow_carrot-left"></span></a>
+                        {% endif %}
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <a class="page-link" style="text-align:center" href="?{% query_transform page=num %}">{{ num }}</a>
+                            {% elif num > page_obj.number|add:'-11' and num < page_obj.number|add:'11' %}
+                                <a class="page-link" style="text-align:center" href="?{% query_transform page=num %}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                              <a class="page-link" style="text-align:center" href="?{% query_transform page=page_obj.paginator.num_pages %}"><span class="arrow_carrot-right"></span></a>
+                        {% endif %}
+
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="shop__last__text">
-                        <p>Showing 1-9 of 10 results</p>
+                        <p>{{ page_obj_count_string }}</p>
                     </div>
                 </div>
             </div>
@@ -403,104 +105,4 @@
     </div>
 </section>
 
-
-<footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__widget">
-                    <h6>WORKING HOURS</h6>
-                    <ul>
-                        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
-                        <li>Saturday: 10:00 am – 16:30 pm</li>
-                        <li>Sunday: 10:00 am – 16:30 pm</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__about">
-                    <div class="footer__logo">
-                        <a href="shop.html#"><img src="img/footer-logo.png" alt></a>
-                    </div>
-                    <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua.</p>
-                    <div class="footer__social">
-                        <a href="shop.html#"><i class="fa fa-facebook"></i></a>
-                        <a href="shop.html#"><i class="fa fa-twitter"></i></a>
-                        <a href="shop.html#"><i class="fa fa-instagram"></i></a>
-                        <a href="shop.html#"><i class="fa fa-youtube-play"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__newslatter">
-                    <h6>Subscribe</h6>
-                    <p>Get latest updates and offers.</p>
-                    <form action="shop.html#">
-                        <input type="text" placeholder="Email">
-                        <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <p class="copyright__text text-white">
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i>
-                        by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-
-                    </p>
-                </div>
-                <div class="col-lg-5">
-                    <div class="copyright__widget">
-                        <ul>
-                            <li><a href="shop.html#">Privacy Policy</a></li>
-                            <li><a href="shop.html#">Terms & Conditions</a></li>
-                            <li><a href="shop.html#">Site Map</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery.barfiller.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/jquery.slicknav.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/main.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
-        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
-        data-cf-beacon='{"rayId":"83fafb68eafa2dec","b":1,"version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
-        crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock main %}
