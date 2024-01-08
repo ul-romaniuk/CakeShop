@@ -18,7 +18,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'description', 'price', 'min_order', 'unit', 'is_active']
+    list_display = ['name', 'description', 'price', 'min_order', 'unit', 'is_active', 'image']
 
 
 class OrderAdmin(admin.ModelAdmin):

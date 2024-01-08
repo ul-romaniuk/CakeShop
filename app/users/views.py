@@ -13,6 +13,7 @@ class HomeView(ListView):
         context_data = {
             'title': 'Cake Shop',
             'feedbacks': feedbacks,
+            'menu_key': 'home_page'
         }
 
         return context_data

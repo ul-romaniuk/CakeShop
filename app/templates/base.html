@@ -1,6 +1,7 @@
 {% load static %}
 
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Cake Template">
@@ -106,12 +107,11 @@
                 <div class="col-lg-12">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="{% url 'home_page' %}">Home</a></li>
+                            <li class="{% if menu_key == 'home_page' %} active {% endif %}"><a href="{% url 'home_page' %}">Home</a></li>
                             <li><a href="about.html">About</a></li>
-                            <li><a href="{% url 'product_catalog' %}">Catalog</a></li>
+                            <li class="{% if menu_key == 'product_catalog' %} active {% endif %}"><a href="{% url 'product_catalog' %}">Catalog</a></li>
                             <li><a href="index.html#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="shop-details.html">Shop Details</a></li>
                                     <li><a href="shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="checkout.html">Check Out</a></li>
                                     <li><a href="wisslist.html">Wisslist</a></li>

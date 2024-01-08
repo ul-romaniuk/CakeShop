@@ -10,4 +10,3 @@ class OrderStatusEnum(str, Enum):
     def choices(cls):
         res = tuple([(e.value, e.value) for e in cls])
         return res
-

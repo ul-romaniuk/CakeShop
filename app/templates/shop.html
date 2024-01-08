@@ -25,46 +25,58 @@
         <div class="shop__option">
             <div class="row">
                 <div class="col-lg-7 col-md-7">
-                    <div>
-                          <select id="approach1" class="form-control">
-                            <option disabled>what are you interested in?</option>
-                            <option value="photos">photos</option>
-                            <option value="books">books</option>
-                            <option value="recipes">recipes</option>
-                          </select>
+                    <div class="shop__option__search">
+                        <form action="#">
+                            <select onChange="window.location.href=this.value">
+                                {% if category_name %}
+                                <option value>{{ category_name }}</option>
+                                {% else %}
+                                <option value>Категорії</option>
+                                {% endif %}
+                                <option value="?category=cakes">Торти</option>  # коли доробим окремі сторінки для категорій то воно буде переводити на них по такому принциму
+                                <option value="?category=cupcakes">Капкейки</option>
+                                <option value="?category=zefir">Зефір</option>
+
+                            </select>
+                            <input type="text" name="search" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
-<!--                <div class="col-lg-5 col-md-5">-->
-<!--                    <div class="shop__option__right">-->
-<!--                        <nav class="header__menu mobile-menu">-->
-
-<!--                        <ul>-->
-
-<!--                            <li><a href="index.html#">Pages</a>-->
-<!--                                <ul class="dropdown">-->
-<!--                                    <li><a href="shop-details.html">Shop Details</a></li>-->
-<!--                                    <li><a href="shoping-cart.html">Shoping Cart</a></li>-->
-
-<!--                                </ul>-->
-<!--                            </li>-->
-
-<!--                        </ul>-->
-<!--                        </nav>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="col-lg-5 col-md-5">
+                    <div class="shop__option__right">
+                        <select onChange="window.location.href=this.value">
+                            {% if ordering_name %}
+                            <option value>{{ ordering_name }} &nbsp; &nbsp; </option>
+                            {% else %}
+                            <option value>Сортування по: </option>
+                            {% endif %}
+                            <option value="?{% query_transform ordering='name' %}">Назві</option>  # тут тільки спробувати переробити на темплейт тег "query_transform"
+                            <option value="?{% query_transform ordering='price_up' %}">Ціна вверх</option>
+                            <option value="?{% query_transform ordering='price_down' %}">Ціна вниз</option>  # якщо раптом верхній варіант (без лапок) не працюватиме, то спробуєш з лапками
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             {% for product in products %}
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/shop/details/product-big-1.jpg' %}">
+                    {% if product.image.url %}
+                        <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
+                    {% else %}
+                        <div class="product__item__pic set-bg" data-setbg="{% static 'img/shop/details/product-big-1.jpg' %}">
+                    {% endif %}
+                        {% for category in product.category.all %}
                             <div class="product__label">
-                                <span>Cake</span>
+                                <span>{{category.name}}</span>
                             </div>
+                        {% endfor %}
+
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="shop.html#">{{ product.name }}</a></h6>
+                        <h6><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
                         <div class="product__item__price">{{ product.price }} ua / {{ product.unit }}</div>
                         <div class="cart_add">
                             <a href="shop.html#">Add to cart</a>

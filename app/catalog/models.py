@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from catalog.constants import OrderStatusEnum
 from users.models import CustomUser
@@ -19,9 +20,15 @@ class Product(models.Model):
     unit = models.CharField(max_length=16) #одиницявиміру
     category = models.ManyToManyField(to=Category, related_name='products')
     is_active = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='media/static/img/product/', null=True, blank=True,)
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.pk])
+
+
 
 
 class Order(models.Model):
