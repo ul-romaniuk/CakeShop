@@ -1,11 +1,12 @@
-from django.db.models import F, Q
-from django.shortcuts import render
-from django.urls import reverse_lazy, reverse
-from django.views.generic import DetailView
+from django.db.models import Q
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, CreateView, UpdateView
 from django.views.generic.list import ListView
 
-from catalog.forms import CatalogProductsSearchForm
-from catalog.models import Product, Category
+from catalog.constants import OrderStatusEnum
+from catalog.forms import CatalogProductsSearchForm, AddToCartForm, ApplyOrderForm
+from catalog.models import Product, Category, Order
+from catalog.utils import get_basket
 
 
 class CatalogView(ListView):
@@ -99,20 +100,50 @@ class ProductDetailView(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         product = self.get_object()
-        # print(product.category.all().values_list('name', flat=True))
         categories = Category.objects.all().values_list('name', flat=True)
         related_products = Product.objects.exclude(pk=product.pk).filter(category__in=product.category.all()).distinct()
+
+        add_form = AddToCartForm(initial={
+            'product': product,
+            'order': get_basket(self.request),
+        })
 
         context.update({
             'title': 'Product Details',
             'categories': categories,
             'related_products': related_products,
+            'add_form': add_form,
+
 
         })
         return context
 
 
+class AddToCartView(CreateView):
+    form_class = AddToCartForm
+    success_url = reverse_lazy('product_catalog')
 
+
+class ApplyOrderView(DetailView, UpdateView):
+    model = Order
+    fields = ['phone', 'status']
+    template_name = 'shoping-cart.html'
+    success_url = reverse_lazy('home_page')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        order = self.get_object()
+
+        form = ApplyOrderForm(initial={
+            'status': OrderStatusEnum.IN_WORK.value,
+        })
+
+        context.update({
+            'title': 'Order',
+            'order': order,
+            'form': form,
+        })
+        return context
 
 
 

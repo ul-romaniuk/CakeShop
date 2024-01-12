@@ -43,12 +43,22 @@
 
                     </ul>
                     <div class="product__details__option">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="2">
-                            </div>
-                        </div>
-                        <a href="shop-details.html#" class="primary-btn">Add to cart</a>
+                        <form action="{% url 'product_add_to_cart' %}" method="POST">
+                            {% csrf_token %}
+                            {% for field in add_form.hidden_fields %}
+                                {{ field }}
+                            {% endfor %}
+
+                            {% for field in add_form.visible_fields %}
+                                {{ field }}
+                            {% endfor %}
+                            <button type="submit">Додати в корзину</button>
+                        </form>
+<!--                        <div class="quantity">-->
+<!--                            <div class="pro-qty">-->
+<!--                                <input type="text" value="2">-->
+<!--                            </div>-->
+<!--                        </div>-->
 <!--                        <a href="shop-details.html#" class="heart__btn"><span class="icon_heart_alt"></span></a>-->
                     </div>
                 </div>
@@ -89,7 +99,7 @@
 
                     <div class="col-lg-3">
                         <div class="product__item">
-                            {% if product.image.url %}
+                            {% if product.image %}
                                 <div class="product__item__pic set-bg" data-setbg="{{ product.image.url }}">
                             {% else %}
                                 <div class="product__item__pic set-bg" data-setbg="{% static 'img/shop/details/product-big-1.jpg' %}">

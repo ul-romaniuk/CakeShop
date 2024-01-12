@@ -92,8 +92,8 @@
                                     <a href="index.html#"><img src="{% static 'img/icon/heart.png' %}" alt></a>
                                 </div>
                                 <div class="header__top__right__cart">
-                                    <a href="index.html#"><img src="{% static 'img/icon/cart.png' %}" alt> <span>0</span></a>
-                                    <div class="cart__price">Cart: <span>0.00 UA</span></div>
+                                    <a href="{% url 'apply_order' pk=request.session.CURRENT_BASKET %}"><img src="{% static 'img/icon/cart.png' %}" alt> <span>{{ current_basket.get_count_product }}</span></a>
+                                    <div class="cart__price">Cart: <span>{{ current_basket.calc_price }} UA</span></div>
                                 </div>
                             </div>
                         </div>

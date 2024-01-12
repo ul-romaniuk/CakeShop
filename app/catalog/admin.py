@@ -22,7 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['user', 'phone', 'status']
+    list_display = ['phone', 'status']
     inlines = [OrderItemInline]
 
 
