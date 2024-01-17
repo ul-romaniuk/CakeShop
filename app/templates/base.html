@@ -57,17 +57,11 @@
             </div>
             <div class="offcanvas__cart__item">
                 <a href="index.html#"><img src="{% static 'img/icon/cart.png' %}" alt> <span>0</span></a>
-                <div class="cart__price">Cart: <span>0.00 UA</span></div>
+                <div class="cart__price">Корзина: <span>0.00 грн</span></div>
             </div>
         </div>
         <div class="offcanvas__logo">
-            <a href="index.html"><img src="{% static 'img/logo.png' %}" alt></a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__option">
-            <ul>
-                <li><a href="index.html#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-            </ul>
+            <a href="{% url 'home_page' %}"><img src="{% static 'img/CAKE2.png' %}"  alt></a>
         </div>
     </div>
 
@@ -78,22 +72,17 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="header__top__inner">
-                            <div class="header__top__left">
-                                <ul>
-                                    <li><a href="index.html#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-                                </ul>
-                            </div>
                             <div class="header__logo">
-                                <a href="index.html"><img src="{% static 'img/logo.png' %}" alt></a>
+                                <a href="{% url 'home_page' %}"><img src="{% static 'img/CAKE2.png' %}"  alt></a>
                             </div>
                             <div class="header__top__right">
-                                <div class="header__top__right__links">
-                                    <a href="index.html#" class="search-switch"><img src="{% static 'img/icon/search.png' %}" alt></a>
-                                    <a href="index.html#"><img src="{% static 'img/icon/heart.png' %}" alt></a>
-                                </div>
+<!--                                <div class="header__top__right__links">-->
+<!--                                    <a href="index.html#" class="search-switch"><img src="{% static 'img/icon/search.png' %}" alt></a>-->
+<!--                                    <a href="index.html#"><img src="{% static 'img/icon/heart.png' %}" alt></a>-->
+<!--                                </div>-->
                                 <div class="header__top__right__cart">
                                     <a href="{% url 'apply_order' pk=request.session.CURRENT_BASKET %}"><img src="{% static 'img/icon/cart.png' %}" alt> <span>{{ current_basket.get_count_product }}</span></a>
-                                    <div class="cart__price">Cart: <span>{{ current_basket.calc_price }} UA</span></div>
+                                    <div class="cart__price">Корзина: <span>{{ current_basket.calc_price }} грн</span></div>
                                 </div>
                             </div>
                         </div>
@@ -107,20 +96,9 @@
                 <div class="col-lg-12">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="{% if menu_key == 'home_page' %} active {% endif %}"><a href="{% url 'home_page' %}">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li class="{% if menu_key == 'product_catalog' %} active {% endif %}"><a href="{% url 'product_catalog' %}">Catalog</a></li>
-                            <li><a href="index.html#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="checkout.html">Check Out</a></li>
-                                    <li><a href="wisslist.html">Wisslist</a></li>
-                                    <li><a href="https://preview.colorlib.com/theme/cake/Class.html">Class</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li class="{% if menu_key == 'home_page' %} active {% endif %}"><a href="{% url 'home_page' %}">Про нас</a></li>
+                            <li class="{% if menu_key == 'product_catalog' %} active {% endif %}"><a href="{% url 'product_catalog' %}">Каталог</a></li>
+                            <li class="{% if menu_key == 'contact' %} active {% endif %}"><a href="{% url 'contact' %}">Зв'язок з нами</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -133,36 +111,33 @@
 {% endblock main %}
 
 {% block footer %}
-<footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+<footer class="footer set-bg" data-setbg="{% static 'img/footer-1.png' %} ">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__widget">
-                    <h6>WORKING HOURS</h6>
+                    <h6>Робочі години</h6>
                     <ul>
-                        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
-                        <li>Saturday: 10:00 am – 16:30 pm</li>
-                        <li>Sunday: 10:00 am – 16:30 pm</li>
+                        <li>Понеділок - П'ятниця: 08:00 – 20:30 </li>
+                        <li>Субота: 10:00 – 16:30 </li>
+                        <li>Неділя: 10:00 – 16:30 </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="index.html#"><img src="{% static 'img/footer-logo.png' %}" alt></a>
+                        <a href="index.html#"><img src="{% static 'img/CAKE-FOOTER.png' %}" alt></a>
                     </div>
-                    <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua.</p>
+                    <p> Ми завжди стараємось бути з Вами на зв'язку, тож якщо виникнуть питання, з радістю Вам допоможемо.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__newslatter">
-                    <h6>Subscribe</h6>
-                    <p>Get latest updates and offers.</p>
-                    <form action="index.html#">
-                        <input type="text" placeholder="Email">
-                        <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </form>
+                    <h6>Контакти</h6>
+                        <p> Телефон: 380680937724 </p>
+                        <p> cakeshop.contact@gmail.com</p>
+                        <p> Instagram: @sweetcake </p>
                 </div>
             </div>
         </div>

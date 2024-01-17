@@ -1,6 +1,6 @@
 from django.urls import path
 
-from catalog.views import CatalogView, ProductDetailView, AddToCartView, ApplyOrderView
+from catalog.views import CatalogView, ProductDetailView, AddToCartView, ApplyOrderView, OrderItemDeleteView
 
 urlpatterns = [
     path('catalog/', CatalogView.as_view(), name='product_catalog'),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('catalog/product/add_to_cart/', AddToCartView.as_view(), name='product_add_to_cart'),
 
     path('order/<int:pk>', ApplyOrderView.as_view(), name='apply_order'),
+    path('order-item/delete/<int:pk>', OrderItemDeleteView.as_view(), name='order-item-delete'),
 
 ]

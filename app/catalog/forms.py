@@ -30,3 +30,5 @@ class ApplyOrderForm(forms.ModelForm):
             'phone': forms.TextInput(),
             'status': forms.HiddenInput()
         }
+
+

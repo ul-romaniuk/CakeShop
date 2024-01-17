@@ -1,11 +1,12 @@
 from django.db.models import Q
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, CreateView, UpdateView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
 from catalog.constants import OrderStatusEnum
 from catalog.forms import CatalogProductsSearchForm, AddToCartForm, ApplyOrderForm
-from catalog.models import Product, Category, Order
+from catalog.models import Product, Category, Order, OrderItem
 from catalog.utils import get_basket
 
 
@@ -80,7 +81,7 @@ class CatalogView(ListView):
             page_obj_count_string = "No page information available."
 
         context.update({
-            'title': 'Catalog',
+            'title': 'Каталог',
             'search_form': search_form,
             'products': self.get_queryset(),
             'page_obj': page_obj,
@@ -102,6 +103,7 @@ class ProductDetailView(DetailView):
         product = self.get_object()
         categories = Category.objects.all().values_list('name', flat=True)
         related_products = Product.objects.exclude(pk=product.pk).filter(category__in=product.category.all()).distinct()
+        title = product.name
 
         add_form = AddToCartForm(initial={
             'product': product,
@@ -109,7 +111,7 @@ class ProductDetailView(DetailView):
         })
 
         context.update({
-            'title': 'Product Details',
+            'title': title,
             'categories': categories,
             'related_products': related_products,
             'add_form': add_form,
@@ -139,11 +141,18 @@ class ApplyOrderView(DetailView, UpdateView):
         })
 
         context.update({
-            'title': 'Order',
+            'title': 'Корзина',
             'order': order,
             'form': form,
         })
         return context
 
 
+class OrderItemDeleteView(DetailView):
+    model = OrderItem
+    template_name = 'shoping-cart.html'
 
+    def get(self, request, *args, **kwargs):
+        basket = get_basket(self.request)
+        self.get_object().delete()
+        return redirect(reverse_lazy('apply_order', kwargs={'pk': basket.pk}))

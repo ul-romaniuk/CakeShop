@@ -17,3 +17,7 @@ class Feedback(models.Model):
     full_name = models.CharField(max_length=128, null=True, blank=True)
     comment = models.TextField(null=False, blank=False)
 
+
+class Contact(models.Model):
+    email = models.EmailField(max_length=254, null=True, blank=True)
+    message = models.TextField(null=True, blank=True)

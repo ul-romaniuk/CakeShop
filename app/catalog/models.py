@@ -47,6 +47,9 @@ class Order(models.Model):
         self.status = OrderStatusEnum.IN_WORK
         self.save()
 
+    def get_absolute_url(self):
+        return reverse('apply_order', args=[self.pk])
+
     def __str__(self):
         return f'{self.phone}'
 
